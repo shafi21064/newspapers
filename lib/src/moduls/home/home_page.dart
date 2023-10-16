@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newspaper/src/controller/news_controller/news_controller.dart';
 import 'package:newspaper/src/moduls/news_web/news.dart';
 import 'package:provider/provider.dart';
@@ -16,12 +17,12 @@ class _HomePageState extends State<HomePage> {
     var newsUrlProvider = Provider.of<NewsProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'News Paper',
           style: TextStyle(
           color: Colors.black,
             fontWeight: FontWeight.bold,
-            fontSize: 25,
+            fontSize: 25.sp,
         ),),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -44,8 +45,8 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 margin: const EdgeInsets.all(16),
                 padding: const EdgeInsets.all(16),
-                height: 100,
-                width: 100,
+                height: 100.h,
+                width: 100.w,
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(.1),
                   borderRadius: BorderRadius.circular(10)
@@ -53,11 +54,14 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.network(newsUrlProvider.newsUrl[index]['paper_logo']),
-                    const SizedBox(height: 20,),
+                    SizedBox(
+                      height: 50.h,
+                        width: 100.w,
+                        child: Image.network(newsUrlProvider.newsUrl[index]['paper_logo'])),
+                    SizedBox(height: 20.h,),
                     Text(newsUrlProvider.newsUrl[index]['paper_name'],
-                      style: const TextStyle(
-                        fontSize: 18,
+                      style: TextStyle(
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold
                     ),),
 
